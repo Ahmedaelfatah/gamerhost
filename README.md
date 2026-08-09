@@ -1,41 +1,132 @@
-# WebKit CSSFontFace Exploit for PS4/PS5
+# GoldHEN - PS4 Homebrew Enabler
+```
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  _________________  .____  ________    ___ ______________ _______
+ /  _____________  \ |    | \______ \  /   |   \_   _____/ \      \
+/   \  ___  /   |   \|    |  |    |  \/    ~    \    __)_  /   |   \
+\    \_\  \/    |    \    |__|    `   \    Y    /        \/    |    \
+ \______  /\_______  /_______ \_____  /\___|_  /_______  /\____|__  /
+        \/         \/        \/     \/       \/        \/         \/
+                              Coded By
+        _________.__  ____________________________ ________
+       /   _____/|__|/   _________    _________   \\_____  \
+       \_____  \ |  |\_____  \   |    |  |       _/ /   |   \
+       /        \|  |/        \  |    |  |    |   \/    |    \
+      /_______  /|__/_______  /  |____|  |____|_  /\_________/
+              \/            \/                  \/
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+```
 
-### Vulnerability Scope
+## Features
 
-|               | CSSFontFace |
-| :------------ | :---------- |
-| PlayStation 4 | 6.00-13.52  |
-| PlayStation 5 | 1.00-13.40  |
+- Homebrew Enabler
+- Debug Settings
+- VR Support
+- Remote Package Install
+- Rest Mode Support
+- External HDD Support
+- Official External HDD Format Support
+- Debug Trophies Support
+- sys_dynlib_dlsym Patch
+- UART Enabler
+- Never Disable Screenshot
+- Remote Play Enabler
+- FW Update Block
+- FTP Server on 2121 port (Thanks to [hippie68](https://github.com/hippie68))
+- PayLoader Server on 9090 port
+- Klog Server on 3232 port
+- CE-30391-6 Error CMOS Fix
+- Integrated Cheat Menu
+- Integrated FPS Counter
+- Plugins support
+- TitleId label feature
+- Scanlines overlay
+- Internal pkg installation support (/data/pkg) (Thanks to [OSM](https://github.com/OSM-Made))
 
-### Exploitable In
+### Supported Firmwares
 
-|               | CSSFontFace |
-| :------------ | :---------- |
-| PlayStation 4 | 6.00-11.02  |
-| PlayStation 5 | 1.00-8.60   |
+- FW 5.05 / 5.07
+- FW 6.71 / 6.72
+- FW 7.00 / 7.01 / 7.02 / 7.50 / 7.51 / 7.55
+- FW 8.00 / 8.01 / 8.03 / 8.50 / 8.52
+- FW 9.00 / 9.03 / 9.04 / 9.50 / 9.51 / 9.60
+- FW 10.00 / 10.01 / 10.50 / 10.70 / 10.71
+- FW 11.00 / 11.02 / 11.50 / 11.52
+- FW 12.00 / 12.02
 
-* PS5 is also exploitable if ASLR can be defeated, either through a heap-shaping trick or a separate leak bug, and the expected vtable pointer can be recovered before the native crash path.
+### :warning: Warnings
 
-## Supported by This Repository
+The PayLoader server is in an experimental phase but in any case there are several payloads around, some even not very well done, which can also be harmful and in the best case only crash the console. So use it with caution.
+I have tried to work out to support all payloads possible but no guarantees can be given on this. Obviously I do not take any responsibility in case of use of payloads not made by me.
 
-|               | CSSFontFace | Kernel Exploit |
-| :------------ | :---------- |:-------------- |
-| PlayStation 4 | 6.00-11.02  | 7.00-11.02     |
-| PlayStation 5 | N/A         | N/A            |
+### :warning: Known Issues
 
-* add your payload/hen of choice in public/src named as `payload.bin`
-  
-## Limitations
+Applications such as Apollo, Itemzflow, and Orbis Toolbox may cause the PS4 console to crash/malfunction during entering/exiting rest mode.
 
-* Newer WebKit versions on PlayStation 4 [11.5x-latest] and PlayStation 5 [9.00-latest] redesigned CSSFontFace get/set property handling and introduced `m_propertiesOrCSSConnection`. Because of this and other layout changes, the `m_featureSettings` read/write primitive used by this repository is no longer usable on firmware versions above the ranges listed here.
-* On PlayStation 5, vtable checks and WebKit ASLR prevent this repository's chain from working unless a separate ASLR defeat and vtable recovery workaround is found.
+### :warning: Cheat Menu
 
-Technical writeup: https://linearfox.com/blog/cssfontface-uaf-playstation
+The Cheat Menu is experimental, use with caution.
+Please report cheat related issues to the cheat author(s).
 
-# Collaborators / Research References
+Read CHEATMENU.md
 
-[ufm42](https://github.com/ufm42): Bug Research, Full Chain Exploit Development.  
-[Nathan Fargo](https://github.com/ntfargo) aka @ntfargo: Bug Research, Writeup, Exploit Development.   
-[Dr.Yenyen](https://github.com/DrYenyen): Testing.  
-Hacking the PS4 by CTurt (2015) https://cturt.github.io/ps4.html    
-Old PS5 Webkit contributors. (2022) https://github.com/ChendoChap/PS5-Webkit-Execution
+### Credits
+
+Coded by [SiSTRo](https://github.com/SiSTR0)
+
+Cheat Menu coded by:
+- [ctn123](https://github.com/ctn123)
+- [Shinigami](https://github.com/ScriptSK)
+- [SiSTRo](https://github.com/SiSTR0)
+
+[Cheat Manager](https://github.com/GoldHEN/GoldHEN_Cheat_Manager) coded by:
+- [bucanero](https://github.com/bucanero)
+
+[Plugin SDK](https://github.com/GoldHEN/GoldHEN_Plugins_SDK) coded by:
+- [bucanero](https://github.com/bucanero)
+- [ctn123](https://github.com/ctn123)
+- [jocover](https://github.com/jocover)
+- [nik](https://github.com/nkrapivin)
+- [OSM](https://github.com/OSM-Made)
+- [SiSTRo](https://github.com/SiSTR0)
+
+Plugin SDK uses [OpenOrbis-PS4-Toolchain](https://github.com/OpenOrbis/OpenOrbis-PS4-Toolchain) so thanks to all [OpenOrbis](https://github.com/OpenOrbis) devs
+
+Special thanks:
+- [golden](https://github.com/jogolden)
+- [Joonie](https://github.com/Joonie86)
+- [Kameleon](https://github.com/kmeps4)
+- [OSM](https://github.com/OSM-Made)
+
+Greeting to other devs:
+- [Al-Azif](https://github.com/Al-Azif)
+- [ChendoChap](https://github.com/ChendoChap)
+- [flat_z](https://github.com/flatz)
+- [idc](https://github.com/idc)
+- [kiwidoggie](https://github.com/kiwidoggie)
+- [qwertyoruiop](https://twitter.com/qwertyoruiopz)
+- [sleirsgoevy](https://github.com/sleirsgoevy)
+- [Specter](https://github.com/Cryptogenic)
+- [SocraticBliss](https://github.com/SocraticBliss)
+- [Vortex](https://github.com/xvortex)
+- [zecoxao](https://twitter.com/notzecoxao)
+- [Znullptr](https://github.com/dmiller423)
+
+Greeting to QA/Testers:
+- [Arczi](https://www.psxhax.com/members/archi55.566599)
+- [Big_Wadger](https://twitter.com/big_wadger)
+- [Brandon Alberhasky](https://twitter.com/alberhasky)
+- [Echo Stretch](https://twitter.com/StretchEcho)
+- [Marcus Andre](https://github.com/marcussacana)
+- [MGS_PS4_PS5_HB_Tester](https://twitter.com/MSZ_MGS)
+- [Pharaoh2k](https://github.com/Pharaoh2k)
+- [DrYenyen](https://github.com/DrYenyen)
+
+
+### Note
+Project source code is currently private because over time I have seen a sad abuse of the source code that I, like the previous devs who worked on it, have been pleased to make it available to everyone to study and maybe improve it.
+
+### Donations
+Consider [donating](https://goldhen.github.io/support) if you like GoldHEN and want to support my work
+
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/SiSTRo)
